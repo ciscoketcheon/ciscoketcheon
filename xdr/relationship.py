@@ -136,7 +136,7 @@ if __name__ == "__main__":
     # Obtain the token
     token = obtain_token(client_id, client_password)
 
-    # Use the token to make a request
+    # Use the token to make a request of the feed, comment if dont need
     if token:
         use_token(token, feed_url)
 
@@ -154,6 +154,7 @@ if __name__ == "__main__":
     if token and judgement_id:
         create_relationship(token, judgement_id, indicator_id)
 
+    # Query the feed again, comment if dont need
     if token:
         use_token(token, feed_url)
 
