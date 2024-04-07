@@ -34,8 +34,8 @@ admin_email = ''
 
 
 # Define ETD parameters
-client_id = "8423d787-c404-4692-8c24-bd9077abe8d4"
-client_password = "cdW5ZxlFiN3Q4UsX_w-JxyQvYiebiqIWAmEhwYydxEo"
+client_id = ""
+client_password = ""
 token_url = "https://api.beta.etd.cisco.com/v1/oauth/token"
 #message_url = "https://api.beta.etd.cisco.com/v1/messages/search"
 report_top_url = "https://api.beta.etd.cisco.com/v1/messages/report/top"
