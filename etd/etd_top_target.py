@@ -1,3 +1,6 @@
+### This script pull top target data from ETD in JSON output and send it in an email to administrator. 
+### This script are shared on as-is basis. 
+
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -6,12 +9,29 @@ import requests
 import datetime
 
 
-# Define SMTP server and admin email address
-smtp_server = '192.168.0.125'
+#### Define SMTP server and admin email address
+# smtp_server = 'x.x.x.x'
+# smtp_port = 25  # or your SMTP port
+# smtp_username = 'etd_notification@yourdomain.com'
+### optional, this code doesn't need SMTP AUTH ### smtp_password = 'your_smtp_password'
+# admin_email = 'admin@yourdomain.com'
+### Fill in the following variables before trying the script
+
+
+smtp_server = ''
 smtp_port = 25  # or your SMTP port
-smtp_username = 'etd_notification@cisco.com'
-#smtp_password = 'your_smtp_password'
-admin_email = 'ketvin@sgcweb.org'
+smtp_username = ''
+#smtp_password = ''
+admin_email = ''
+
+
+### Get these value from ETD, create API credential, example as follow
+### client_id = "ac6991c4-df45-xxxx-xxxx-xxxxxxxxx"
+### client_password = "PxVRzLALsETnyrZri9oLiZ_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+### token_url and report_top_url is pre-populated, change to your API region
+###
+### Fill in the following variables before trying the script
+
 
 # Define ETD parameters
 client_id = "8423d787-c404-4692-8c24-bd9077abe8d4"
