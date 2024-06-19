@@ -1,0 +1,57 @@
+POST https://sma1.dcloud.cisco.com:4431/sma/api/v2.0/remediation HTTP/1.1
+Host: sma1.dcloud.cisco.com:4431
+Connection: keep-alive
+Content-Length: 554
+sec-ch-ua: "Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+jwtToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwic2Vzc2lvbkVuZFRpbWUiOjE3MTg4Mjc4MzEsImlzMkZhY3RvckNoZWNrUmVxdWlyZWQiOmZhbHNlLCJ1c2VyIjoiTk9ORVVRIiwiZXhwIjoxNzE4Nzg2NDMxLCJjb29raWUiOiJUVlJKTTB4cVFYVk5RelI0VDJwWmQwMUVRWGdLTzAxVWF6Uk1ha1UwVEdwRmVrMTVOSHBPWnowOUNqdFVWemsyWVZkNGMxbFRPREZNXG5ha0ZuUzBaa2NHSnRVblprTTAxblZHeFJaMDFVUVhWTlJITm5WakpzZFU1cVVUZEpTR2N5VGtOcloxRllRbmRpUjFaWVdsZEtUR0ZZXG5VWFpPVkUwekNreHFUVEpKUTJoTVUwWlNUbFJEZDJkaVIyeHlXbE5DU0ZwWFRuSmllV3RuVVRKb2VXSXlNV3hNZWtWM1QxTTBkMHhxXG5RWFZOUTBKVVdWZGFhR050YTNaT1ZFMHpUR3BOTWdvN1RucFJlVTU2VVhoTlJHYzlDanRVVkUxM1RVWlpOMDFVVlhWTlF6UjNURlJOXG5lRTU2Y3pCTmFrVXpUVEJSZUU5VlJUUk9WR3Q1VFRCS1JsRjZhRWRPZVRGR1VXcFpNbEZyUlhoU2Fra3dUWHBaTndvN1dWZFNkR0ZYXG5ORDBLTzFsWVFuZGlSMnhxV1ZoU2NHSXlOSFpoYms1MlltbDNaMlJIVmpSa1F6bDNZa2RHY0dKcGQyZExhVGh4Q2pzPVxuIn0.iL18_R61Onfdr4UFDoe4T9H1Fbz96JOJn_jWShtE9gU
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Origin: https://sma1.dcloud.cisco.com:4431
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://sma1.dcloud.cisco.com:4431/tracking/search/results?startDate=2024-06-12T00:00:00.000Z&endDate=2024-06-19T08:11:00.000Z&messageRange=seven_days&envelopeRecipientfilterOperator=begins_with&envelopeRecipientfilterValue=alan@
+Accept-Language: en-US,en;q=0.9
+Cookie: _ga=GA1.1.666495211.1666082124; wfx_unq=ot1Yz6XN4Lh6KTuz; authenticated=bE3iJB7n0FOp0tu0BEUp; sid=zLFbw7t30SafRlXv87oc; _ga_4JD8DZ3P1X=GS1.1.1718784620.7.0.1718784620.0.0.0
+
+
+
+
+{"data":{"batch_id":"","batch_name":"rem1","initiated_username":"admin","initiated_source":"sma1.dcloud.cisco.com","batch_description":"","action":"fwdDelete","fwd_email_address":["ben@dcloud-out.cisco.com"],"folder_name":"TEST FOLDER","report_to_talos":0,"message_details":[{"mid":[266969],"message_id":"<6755fc$84mp@esa1.dcloud.cisco.com>","from_email":["crobbins@dcloud.cisco.com"],"recipient_email":["alan@dcloud.cisco.com"],"subject":"test Tue, 18 Jun 2024 02:17:40 -0400","serial_number":"422AF8E657D473B724BA-4ABEAACD18D2","sent_at":1718691448}]}}
+
+
+
+
+
+
+POST https://sma1.dcloud.cisco.com:4431/sma/api/v2.0/remediation HTTP/1.1
+Host: sma1.dcloud.cisco.com:4431
+Connection: keep-alive
+Content-Length: 548
+sec-ch-ua: "Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+jwtToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwic2Vzc2lvbkVuZFRpbWUiOjE3MTg4Mjc4MzEsImlzMkZhY3RvckNoZWNrUmVxdWlyZWQiOmZhbHNlLCJ1c2VyIjoiTk9ORVVRIiwiZXhwIjoxNzE4Nzg2NDMxLCJjb29raWUiOiJUVlJKTTB4cVFYVk5RelI0VDJwWmQwMUVRWGdLTzAxVWF6Uk1ha1UwVEdwRmVrMTVOSHBPWnowOUNqdFVWemsyWVZkNGMxbFRPREZNXG5ha0ZuUzBaa2NHSnRVblprTTAxblZHeFJaMDFVUVhWTlJITm5WakpzZFU1cVVUZEpTR2N5VGtOcloxRllRbmRpUjFaWVdsZEtUR0ZZXG5VWFpPVkUwekNreHFUVEpKUTJoTVUwWlNUbFJEZDJkaVIyeHlXbE5DU0ZwWFRuSmllV3RuVVRKb2VXSXlNV3hNZWtWM1QxTTBkMHhxXG5RWFZOUTBKVVdWZGFhR050YTNaT1ZFMHpUR3BOTWdvN1RucFJlVTU2VVhoTlJHYzlDanRVVkUxM1RVWlpOMDFVVlhWTlF6UjNURlJOXG5lRTU2Y3pCTmFrVXpUVEJSZUU5VlJUUk9WR3Q1VFRCS1JsRjZhRWRPZVRGR1VXcFpNbEZyUlhoU2Fra3dUWHBaTndvN1dWZFNkR0ZYXG5ORDBLTzFsWVFuZGlSMnhxV1ZoU2NHSXlOSFpoYms1MlltbDNaMlJIVmpSa1F6bDNZa2RHY0dKcGQyZExhVGh4Q2pzPVxuIn0.iL18_R61Onfdr4UFDoe4T9H1Fbz96JOJn_jWShtE9gU
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Origin: https://sma1.dcloud.cisco.com:4431
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://sma1.dcloud.cisco.com:4431/tracking/search/results?startDate=2024-06-12T00:00:00.000Z&endDate=2024-06-19T08:18:00.000Z&messageRange=seven_days&envelopeRecipientfilterOperator=begins_with&envelopeRecipientfilterValue=alan
+Accept-Language: en-US,en;q=0.9
+Cookie: _ga=GA1.1.666495211.1666082124; wfx_unq=ot1Yz6XN4Lh6KTuz; authenticated=bE3iJB7n0FOp0tu0BEUp; sid=zLFbw7t30SafRlXv87oc; _ga_4JD8DZ3P1X=GS1.1.1718784620.7.0.1718784620.0.0.0
+
+
+
+
+{"data":{"batch_id":"","batch_name":"rem2","initiated_username":"admin","initiated_source":"sma1.dcloud.cisco.com","batch_description":"","action":"fwdDelete","fwd_email_address":["ben@dcloud-out.cisco.com"],"folder_name":"TEST FOLDER","report_to_talos":0,"message_details":[{"mid":[266967],"message_id":"<6755fc$84mn@esa1.dcloud.cisco.com>","from_email":["phishtest@cisco.com"],"recipient_email":["alan@dcloud.cisco.com"],"subject":"test Tue, 18 Jun 2024 02:16:29 -0400","serial_number":"422AF8E657D473B724BA-4ABEAACD18D2","sent_at":1718691377}]}}
+
+
+
+
+
