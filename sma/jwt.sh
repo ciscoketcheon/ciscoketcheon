@@ -1,29 +1,40 @@
-#!/bin/bash
+import base64
+import json
+import requests
 
 # Set variables for username and passphrase (encoded)
-USERNAME="YWRtaW4="  # Base64 for 'admin'
-PASSPHRASE="QzFzY28xMjM0NQ=="  # Base64 for 'C1sco12345'
+username = "YWRtaW4="  # Base64 for 'admin'
+passphrase = "QzFzY28xMjM0NQ=="  # Base64 for 'C1sco12345'
 
-# Perform the cURL request to get the JWT token
-response=$(curl -s -X POST https://sma1.dcloud.cisco.com:4431/sma/api/v2.0/login \
-  --insecure \
-  -H "Content-Type: application/json;charset=UTF-8" \
-  -d "{\"data\":{\"userName\":\"$USERNAME\",\"passphrase\":\"$PASSPHRASE\"}}")
+# Endpoint URL
+url = "https://sma1.dcloud.cisco.com:4431/sma/api/v2.0/login"
 
-# Extract JWT token from the response using jq (requires jq to be installed)
-jwtToken=$(echo $response | jq -r '.data.jwtToken')
+# Headers
+headers = {
+    "Content-Type": "application/json;charset=UTF-8"
+}
 
-# Check if the JWT token is retrieved
-if [ "$jwtToken" == "null" ] || [ -z "$jwtToken" ]; then
-  echo "Login failed. Please check your credentials."
-  exit 1
-fi
+# Data payload
+payload = {
+    "data": {
+        "userName": username,
+        "passphrase": passphrase
+    }
+}
 
-# Print the JWT token
-echo "JWT Token: $jwtToken"
+# Perform the POST request to get the JWT token
+response = requests.post(url, headers=headers, json=payload, verify=False)
 
-# If you want to save the JWT token to a file, uncomment the line below
-# echo $jwtToken > jwt_token.txt
-
-echo "Request completed with Base64 encoded content."
+# Check if the response is successful
+if response.status_code == 200:
+    response_data = response.json()
+    jwt_token = response_data.get("data", {}).get("jwtToken")
+    
+    if jwt_token:
+        print(f"JWT Token: {jwt_token}")
+    else:
+        print("Failed to retrieve JWT token.")
+else:
+    print(f"Request failed with status code {response.status_code}.")
+    print(response.text)
 
