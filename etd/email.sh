@@ -4,4 +4,4 @@ swaks --server esa1.dcloud.cisco.com --from verdict@cisco.com --to alan@dcloud.c
 swaks --server esa1.dcloud.cisco.com --from no-verdict@cisco.com --to alan@dcloud.cisco.com --header "subject: Verdict List test" --body "https://ihaveabadreputation.com test"
 swaks --server esa1.dcloud.cisco.com --from phishtest@cisco.com --to alan@dcloud.cisco.com --header "subject: Bypass List test" --body "https://ihaveabadreputation.com test"
 swaks --server esa1.dcloud.cisco.com --from no-phishtest@cisco.com --to alan@dcloud.cisco.com --header "subject: Bypass List test" --body "https://ihaveabadreputation.com test"
-swaks --server esa1.dcloud.cisco.com --from crobbins@dcloud.cisco.com --to alan@dcloud.cisco.com --header "From: Chuck Robbins <crobbins@dcloud.cisco.com>"--header "subject: VIP test" --body "https://ihaveabadrutation.com test"
+swaks --server esa1.dcloud.cisco.com --from crobbins@dcloud.cisco.com --to alan@dcloud.cisco.com --header "From: Chuck Robbins <crobbins@dcloud.cisco.com>" --header "subject: VIP test" --body "https://ihaveabadreputation.com test"

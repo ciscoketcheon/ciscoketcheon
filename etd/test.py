@@ -3,6 +3,7 @@ import json
 from datetime import datetime, timedelta
 from requests.auth import HTTPBasicAuth
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
+import time
 
 # Suppress only the single InsecureRequestWarning from urllib3 needed for unverified HTTPS requests
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -32,12 +33,23 @@ token_headers = {
 }
 
 # Generate the current timestamp and the timestamp from 5 minutes ago
-current_time = datetime.utcnow()
-start_time = current_time - timedelta(minutes=5)
+absolute_time = datetime.utcnow()
+current_time = absolute_time - timedelta(minutes=5)
+start_time = absolute_time - timedelta(minutes=10)
+#start_time = start_time - timedelta(hours=8)
+
+
+print ("Current time" , current_time)
+print ("Start time" , start_time)
+
 
 # Format the timestamps as ISO 8601 strings
 current_time_str = current_time.strftime('%Y-%m-%dT%H:%M:%S.%fZ')[:-3] + 'Z'
 start_time_str = start_time.strftime('%Y-%m-%dT%H:%M:%S.%fZ')[:-3] + 'Z'
+
+print ("Current time str" , current_time_str)
+print ("Start time str" , start_time_str)
+
 
 # Make the POST request to get the access token
 token_response = requests.post(token_url, headers=token_headers, auth=HTTPBasicAuth(client_id, client_secret))
@@ -58,7 +70,7 @@ if token_response.status_code == 200:
     # Define the payload for the search request
     search_payload = {
         "timestamp": [start_time_str, current_time_str],
-        "verdict": ["bec", "scam", "phishing", "malicious"]
+        "verdicts": ["bec", "scam", "phishing", "malicious"]
     }
 
     # Make the POST request to the search endpoint
@@ -80,6 +92,7 @@ if token_response.status_code == 200:
             }
         }
 
+
         login_response = requests.post(login_url, headers=login_headers, json=login_payload, verify=False)
         if login_response.status_code == 200:
             response_data = login_response.json()
@@ -94,7 +107,7 @@ if token_response.status_code == 200:
                     remediation_payload = {
                         "data": {
                             "batch_id": "",
-                            "batch_name": "rem2",
+                            "batch_name": "api",
                             "initiated_username": "admin",
                             "initiated_source": "sma1.dcloud.cisco.com",
                             "batch_description": "",
@@ -103,13 +116,13 @@ if token_response.status_code == 200:
                             "folder_name": "TEST FOLDER",
                             "report_to_talos": 0,
                             "message_details": [{
-                                "mid": [result.get('id', '')],
+                                "mid": [123],
                                 "message_id": result.get('internetMessageId', ''),
-                                "from_email": [result.get('fromAddress', '')],
-                                "recipient_email": result.get('mailboxes', []),
-                                "subject": result.get('subject', ''),
-                                "serial_number": result.get('clientIP', ''),
-                                "sent_at": int(datetime.strptime(result.get('timestamp', ''), '%Y-%m-%dT%H:%M:%SZ').strftime('%s'))
+                                "from_email": ["no-allowlist@dcloud.cisco.com"],
+                                "recipient_email": ["alan@dcloud.cisco.com"],
+                                "subject": "",
+                                "serial_number": "422AF8E657D473B724BA-4ABEAACD18D2",
+                                "sent_at": 178691377
                             }]
                         }
                     }
@@ -120,9 +133,12 @@ if token_response.status_code == 200:
                         "jwtToken": jwt_token
                     }
 
+
                     # Print debugging information
                     print("Remediation Headers: {}".format(remediation_headers))
                     print("Remediation Payload: {}".format(json.dumps(remediation_payload, indent=4)))
+
+                    time.sleep(2)
 
                     # Perform the POST request to the remediation endpoint
                     remediation_response = requests.post(remediation_url, headers=remediation_headers, json=remediation_payload, verify=False)
@@ -147,4 +163,7 @@ else:
     print("Failed to obtain access token")
     print(token_response.status_code)
     print(token_response.json())
+
+                                                              
+
 
