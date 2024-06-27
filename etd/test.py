@@ -42,7 +42,6 @@ start_time = absolute_time - timedelta(minutes=10)
 print ("Current time" , current_time)
 print ("Start time" , start_time)
 
-
 # Format the timestamps as ISO 8601 strings
 current_time_str = current_time.strftime('%Y-%m-%dT%H:%M:%S.%fZ')[:-3] + 'Z'
 start_time_str = start_time.strftime('%Y-%m-%dT%H:%M:%S.%fZ')[:-3] + 'Z'
@@ -93,6 +92,7 @@ if token_response.status_code == 200:
         }
 
 
+
         login_response = requests.post(login_url, headers=login_headers, json=login_payload, verify=False)
         if login_response.status_code == 200:
             response_data = login_response.json()
@@ -118,14 +118,19 @@ if token_response.status_code == 200:
                             "message_details": [{
                                 "mid": [123],
                                 "message_id": result.get('internetMessageId', ''),
-                                "from_email": ["no-allowlist@dcloud.cisco.com"],
-                                "recipient_email": ["alan@dcloud.cisco.com"],
+                             #   "from_email": ["no-allowlist@dcloud.cisco.com"],
+                                "from_email": [result.get('fromAddress', '')],
+                              #  "recipient_email": ["alan@dcloud.cisco.com"],
+                                "recipient_email": result.get('mailboxes', []),
                                 "subject": "",
                                 "serial_number": "422AF8E657D473B724BA-4ABEAACD18D2",
                                 "sent_at": 178691377
                             }]
                         }
                     }
+
+
+
 
                     # Define the headers for the remediation request, including the jwtToken
                     remediation_headers = {
@@ -164,6 +169,5 @@ else:
     print(token_response.status_code)
     print(token_response.json())
 
-                                                              
 
 

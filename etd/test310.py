@@ -3,7 +3,6 @@ import json
 from datetime import datetime, timedelta
 from requests.auth import HTTPBasicAuth
 import time
-import base64
 from requests.exceptions import RequestException
 
 # Suppress only the single InsecureRequestWarning from urllib3 needed for unverified HTTPS requests
@@ -23,13 +22,8 @@ client_id = ''
 client_secret = ''
 
 # Set variables for username and passphrase for the second API (encoded)
-username_text = '' 
-passphrase_text = ''
-
-username = base64.b64encode(username_text.encode()).decode()
-passphrase = base64.b64encode(passphrase_text.encode()).decode()
-
-#print (username, passphrase)
+username = ""  # Base64 for ''
+passphrase = ""  # Base64 for ''
 
 # Endpoint URL for the second API login
 login_url = "https://sma1.dcloud.cisco.com:4431/sma/api/v2.0/login"
