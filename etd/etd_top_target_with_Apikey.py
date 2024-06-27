@@ -25,20 +25,22 @@ smtp_username = ''
 admin_email = ''
 
 
-### Get these value from ETD, create API credential, example as follow
+### Get these value from ETD, create API credential, and API key with example as follow
 ### client_id = "ac6991c4-df45-xxxx-xxxx-xxxxxxxxx"
 ### client_password = "PxVRzLALsETnyrZri9oLiZ_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+### api_key = "twBJkLMj8l3pmMWtxxxxxxxxxxxxxxxxxxx"
 ### token_url and report_top_url is pre-populated, change to your API region
 ###
 ### Fill in the following variables before trying the script
 
 
 # Define ETD parameters
-client_id = ""
-client_password = ""
 token_url = "https://api.beta.etd.cisco.com/v1/oauth/token"
 #message_url = "https://api.beta.etd.cisco.com/v1/messages/search"
 report_top_url = "https://api.beta.etd.cisco.com/v1/messages/report/top"
+api_key = ''
+client_id = ''
+client_secret = ''
 
 
 
@@ -61,10 +63,11 @@ def send_email(subject, message):
 
 
 # Function to obtain the token
-def obtain_token(client_id, client_password, token_url):
+def obtain_token(client_id, client_password, token_url, api_key):
     headers = {
         "Content-Type": "application/x-www-form-urlencoded",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "x-api-key": api_key,
     }
     data = {
         "grant_type": "client_credentials"
@@ -84,7 +87,7 @@ def obtain_token(client_id, client_password, token_url):
         print("Error obtaining token:", response.text)
         return None
 
-def topTarget(token, report_top_url):
+def topTarget(token, report_top_url, api_key):
 
     # Get the current time
     current_time = datetime.datetime.utcnow()
@@ -113,7 +116,8 @@ def topTarget(token, report_top_url):
 
     headers = {
         "Authorization": f"Bearer {token}",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "x-api-key": api_key,
     }
 
     # Send the POST request with the data payload
@@ -133,12 +137,12 @@ if __name__ == "__main__":
 
 
     # Obtain the token
-    token = obtain_token(client_id, client_password, token_url)
+    token = obtain_token(client_id, client_password, token_url, api_key)
 
   # Use the token to make a request
     if token:
   #   topTarget(token, report_top_url)
-        top_target_output = topTarget(token, report_top_url)
+        top_target_output = topTarget(token, report_top_url, api_key)
 
         # Send email with the output
     if "error" not in top_target_output:

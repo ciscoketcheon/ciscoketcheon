@@ -14,15 +14,15 @@ search_url = 'https://api.beta.etd.cisco.com/v1/messages/search'
 remediation_url = 'https://sma1.dcloud.cisco.com:4431/sma/api/v2.0/remediation'
 
 # Define the API key for the first API
-api_key = 'zpQbVhhTzm87JuvxCqgO92n3BmqLEwUq9nq9oqJi'
+api_key = ''
 
 # Define the client ID and client secret for the first API
-client_id = '9f3fafa9-005a-43d8-94ee-e9ab1591ca92'
-client_secret = 'KA12mawRhBcVnYSyy9F_6wBoHjzcwOUOfdST9AxHGb8'
+client_id = ''
+client_secret = ''
 
 # Set variables for username and passphrase for the second API (encoded)
-username = "YWRtaW4="  # Base64 for 'admin'
-passphrase = "QzFzY28xMjM0NQ=="  # Base64 for 'C1sco12345'
+username = ""  # Base64 for ''
+passphrase = ""  # Base64 for ''
 
 # Endpoint URL for the second API login
 login_url = "https://sma1.dcloud.cisco.com:4431/sma/api/v2.0/login"

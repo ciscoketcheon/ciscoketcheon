@@ -6,8 +6,8 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 # Set variables for username and passphrase (encoded)
-username = "YWRtaW4="  # Base64 for 'admin'
-passphrase = "QzFzY28xMjM0NQ=="  # Base64 for 'C1sco12345'
+username = ""  # Base64 for ''
+passphrase = ""  # Base64 for ''
 
 # Endpoint URLs
 login_url = "https://sma1.dcloud.cisco.com:4431/sma/api/v2.0/login"
