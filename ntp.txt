@@ -2,12 +2,10 @@
 w32tm /query /source 
 w32tm /query /peers
 
-If "time.windows.com" is not configured as the NTP source, use the following commands to set it
-
-w32tm /config /syncfromflags:manual /manualpeerlist:"time.windows.com" /reliable: YES /update
+w32tm /config /syncfromflags:manual /manualpeerlist:"time.windows.com" /reliable:YES /update
 
 net stop w32time
 net start w32time
 
-Reboot Domain Controller Server, if necessary.
 
+w32tm /query /peers
