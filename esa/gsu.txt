@@ -1,1 +1,1 @@
-iswaks --to alan@dcloud.cisco.com --from ads@dcloud-out.cisco.com --server esa1.dcloud.cisco.com --tls --header "X-Advertisement: Bulk" --header "Subject: test unsub" --attach-type text/html --attach-body gsu-sample.html
+ swaks --to alan@dcloud.cisco.com --from ads@dcloud-out.cisco.com --server esa1.dcloud.cisco.com --header "X-Advertisement: Bulk" --header "Subject: test unsub" --body "<html><body> This is a test <a href="https://www.sgcweb.org">test unsub</a> </body></html>" --add-header "Content-Type: text/html"
