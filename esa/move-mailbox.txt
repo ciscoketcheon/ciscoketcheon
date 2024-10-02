@@ -1,0 +1,14 @@
+i1. Dismount the database (run this on exchange server mail1, from Exch mgmt shell, not powershell)-> 
+ > Dismount-Database -Identity "DB02"
+
+2. Move the database to C:
+> Move-DatabasePath -Identity "DB02" -LogFolderPath "C:\Mailbox\Logs" -EdbFilePath "C:\Mailbox\DB02\DB02.edb"
+
+ (grab a coffee, took 5-10min)
+
+3. Re-mount the database
+> Mount-Database -Identity "DB02"
+
+After this, you should be able to reconnect outlook and see the Inbox from the Wskt1. 
+Partition C: will have 9Gb+ free space left, should be able to run for many days.
+
