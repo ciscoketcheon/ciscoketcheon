@@ -1,0 +1,10 @@
+new-managementroleassignment -name:impersonationassignmentname -role:applicationimpersonation -user:ciscoews
+
+
+
+get-managementroleassignment
+
+
+Remove-ManagementRoleAssignment -Identity "impersonationassignmentname"
+
+
