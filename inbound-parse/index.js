@@ -62,5 +62,4 @@ app.post('/api/parse', upload.any(), async (req, res) => {
 app.listen(3000, () => {
     console.log('Webserver running on -> http://localhost:3000')
 })
-                                                                                                     65,1          Bot
 
