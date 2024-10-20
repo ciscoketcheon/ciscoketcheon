@@ -1,0 +1,31 @@
+
+Install
+
+# mkdir sendgrid-inbound
+# cd sendgrid-inbound
+# touch index.js
+# npm init -y #to create a default package.json file
+# npm install express multer
+# npm install nodemon --save-dev
+# npm install nodemailer
+
+
+Get ready and login to sendgrid
+
+1. start the webserver index.js first, in this folder -> ~/sendgrid-inbound/
+sudo nodemon index.js
+
+2. start webhook
+ngrok http 3000
+
+3. copy the webhook URL
+note - GET will not work, it only take POST
+
+4. Access sendgrid portal -> inbound parse -> create a new mx inbound to the URL in #3, plus the folder of /api/parse
+
+e.g.
+https://ceb3-175-143-186-139.ngrok-free.app/api/parse
+
+start testing
+
+
