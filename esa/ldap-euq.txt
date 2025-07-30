@@ -15,3 +15,11 @@ Make sure to use the "Test Server(s)" button to verify your settings before cont
 
 Spam quarantine end-user auth purpose -> tick the box and + "Designate as the active query", test the queries
 
+
+Accept query
+
+
+    Name: PublicLDAP.accept
+    QueryString:(|(mail={a})(proxyAddresses=smtp:{a}))
+
+
