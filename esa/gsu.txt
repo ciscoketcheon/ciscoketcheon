@@ -7,3 +7,24 @@
 
  swaks --to alan@dcloud.cisco.com --from test@test.com --server esa1.dcloud.cisco.com --header "X-Advertisement: Bulk" --header "Subject: test unsub" --header "Content-type: text/html" --body gray.html
 
+
+
+
+ swaks --to alan@startup.com       --from "Cisco Community Newsletter <newsletter@sender.com>"       --server 198.18.133.147       --header "MIME-Version: 1.0"       --header "Content-Type: text/html; charset=UTF-8"       --header "Precedence: bulk"       --header "List-Id: <weekly-community-digest.ciscocommunity.com>"       --header "List-Unsubscribe: <https://ciscocommunity.com/unsubscribe?user=alan@startup.com>, <mailto:unsub@ciscocommunity.com?subject=unsubscribe>"       --header "List-Unsubscribe-Post: List-Unsubscribe=One-Click"       --header "Subject: Cisco Community Weekly Digest & Tech Insights"       --body "<html>
+<head><title>Cisco Community Digest</title></head>
+<body style='font-family: Arial, sans-serif; color: #333;'>
+  <h2>Cisco Community Weekly Tech Insights</h2>
+  <p>Here is your weekly summary of top architecture articles, security alerts, and upcoming webinars.</p>
+  <ul>
+    <li>Exploring Zero Trust Architectures in 2026</li>
+    <li>Optimizing AsyncOS for Hybrid Cloud Mailboxes</li>
+  </ul>
+  <br>
+  <hr style='border: 0; border-top: 1px solid #ccc;'>
+  <p style='font-size: 11px; color: #777;'>
+    This email was sent to alan@startup.com as part of your active subscription to Cisco Community.
+    <br><br>
+    If you no longer wish to receive this newsletter, please <a href='https://ciscocommunity.com/unsubscribe?user=alan@startup.com'>Unsubscribe here</a>.
+  </p>
+</body>
+</html>"
